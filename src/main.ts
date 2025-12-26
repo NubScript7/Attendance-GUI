@@ -11,20 +11,11 @@ import { setDateToCurrent } from "./exportDate";
 import { StringContent } from "./strings";
 import { exportButton, copyTextButton, exportNoticeModal, exportedText, exportNoticeText, exportDownload } from "./elements";
 
-type AttendanceItem = {
-    firstName: string,
-    lastName: string,
-} & (
-    | { hasMiddleName: true, middleName: string }
-    | { hasMiddleName: false, middleName: null }
-)
-
 export type PersonState = {
     name: string
     state: ItemState
 }
 
-type attendanceList = AttendanceItem[]
 const gridManager = new GridManager()
 document.querySelector("#grid")?.appendChild(gridManager.container)
 
@@ -66,8 +57,7 @@ exportButton.addEventListener("click", () => {
 })
 
 async function initializeAttendaceList() {
-    const response = await fetch(`/json/attendanceList.json`)
-    const json: attendanceList = await response.json()
+    const json = StringContent.attendance
 
     if (typeof json == "object" && Array.isArray(json)) {
         const names = new Set()
@@ -94,7 +84,6 @@ async function initializeAttendaceList() {
 
 
 async function setupStrings() {
-    await StringContent.parseStrings()
     const strings = StringContent.strings
 
     copyTextButton.classList.remove("visually-hidden")
@@ -119,8 +108,12 @@ async function setupStrings() {
 }
 
 (async function() {
-    await initializeAttendaceList()
-    console.log("Attendance list initialized!")
+    await StringContent.parseStrings()
+    console.log("Loaded strings!")
+
     await setupStrings()
     console.log("Setup complete!")
+
+    await initializeAttendaceList()
+    console.log("Attendance list initialized!")
 })();
