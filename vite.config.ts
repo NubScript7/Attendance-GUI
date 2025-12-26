@@ -37,5 +37,7 @@ export default defineConfig({
         silenceDeprecations: ['mixed-decls', 'color-functions', 'global-builtin', 'import']
       },
     }
-  }
+  },
+
+  base: process.env.NODE_ENV === "production" ? "/Attendance-GUI/" : "/",
 })
