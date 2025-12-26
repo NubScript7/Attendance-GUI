@@ -1,0 +1,60 @@
+@import '~bootstrap/scss/bootstrap';
+
+#app {
+    @extend .container-fluid;
+}
+
+#app {
+    #app-container {
+        @extend .container;
+        @extend .mt-lg-3;
+    }
+
+    #app-title {
+        @extend .card;
+        @extend .my-3;
+        @extend .text-center;
+
+        h1 {
+            font-family: 'Lilita One'
+        }
+    }
+
+    #export-options {
+        @extend .card;
+
+        div.card-body {
+            h2.text-muted {
+                font-family: 'Lilita One'
+            }
+        }
+
+        #export-text-container > h3 {
+            font-family: 'Lilita One'
+        }
+
+    }
+
+    .card-form {
+        @extend .form-floating;
+        @extend .my-2;
+        @extend .text-center;
+    }
+
+    #date-input {
+        @extend .form-control;
+    }
+
+    #export-format {
+        @extend .form-select;
+    }
+
+    #export-type-card {
+        @extend .form-control;
+        @extend .my-2;
+
+        h3.text-muted {
+            font-family: 'Lilita One';
+        }
+    }
+}

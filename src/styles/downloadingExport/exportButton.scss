@@ -1,0 +1,6 @@
+@import '~bootstrap/scss/bootstrap';
+
+#export-button {
+    @extend .btn;
+    @extend .btn-light;
+}

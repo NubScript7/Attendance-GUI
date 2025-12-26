@@ -1,0 +1,25 @@
+{
+  "name": "attendance-gui",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "bootstrap-icons": "^1.13.1",
+    "clipboard": "^2.0.11",
+    "resize-polyfill": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/bootstrap": "^5.2.10",
+    "@types/clipboard": "^2.0.1",
+    "sass": "^1.96.0",
+    "typescript": "~5.8.3",
+    "vite": "^6.3.5",
+    "vite-plugin-zip-file": "^4.1.1"
+  }
+}

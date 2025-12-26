@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attendance GUI</title>
+  </head>
+  <body>
+    <div id="app">
+      <div id="app-container">
+        
+        <!-- title -->
+        <div id="app-title">
+          <div class="card-body">
+            <h1>Attendance GUI</h1>
+          </div>
+        </div>
+
+        <div id="export-options">
+          <div class="card-body">
+            <h2 class="text-muted">Options</h2>
+
+            <!-- date option -->
+            <div class="card-form">
+              <input type="date" id="date-input">
+              <label for="date-input">date</label>
+            </div>
+
+            <!-- format option -->
+            <div class="card-form">
+              <select id="export-format" aria-label="Attendance Export Format Option">
+                <option value="json">JSON</option>
+                <option value="absent">Absent Only</option>
+                <option value="present">Present Only</option>
+                <option value="neutral">Neutral Only</option>
+              </select>
+              <label for="export-format">Export Format</label>
+            </div>
+
+            <!-- export type -->
+            <div id="export-type-card">
+              <h3 class="text-muted">Export Type</h3>
+              
+              <div class="form-check">
+                <input checked class="form-check-input checked" type="radio" name="export-type-radio" id="export-type-file">
+                <label for="export-type-file">
+                  <i class="bi bi-file-code"></i>
+                  <span>File</span>
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="export-type-radio" id="export-type-text">
+                <label for="export-type-text">
+                  <i class="bi bi-text-paragraph"></i>
+                  <span>Text</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- optional export settings -->
+            <div class="card-body">
+              <button class="btn btn-secondary"  data-bs-toggle="collapse" data-bs-target="#optional-settings">
+                <i class="bi bi-gear"></i>
+                <span>Optional Settings</span>
+              </button>
+  
+              <div class="collapse" id="optional-settings">
+                <div class="card-body">
+
+                  <div class="form-check form-switch">
+                    <input checked id="include-label" type="checkbox" class="form-check-input">
+                    <label for="include-label">
+                      <i class="bi bi-tags"></i>
+                      <span>include format label</span>
+                    </label>
+                  </div>
+
+                  <div class="form-check form-switch">
+                    <input checked id="include-date" type="checkbox" class="form-check-input">
+                    <label for="include-date">
+                      <i class="bi bi-calendar4"></i>
+                      <span>include date</span>
+                    </label>
+                  </div>
+
+                  <div class="form-check form-switch">
+                    <input checked id="include-count" type="checkbox" class="form-check-input">
+                    <label for="include-count">
+                      <i class="bi bi-123"></i>
+                      <span>include count</span>
+                    </label>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- downloading export -->
+            <div>
+              <button id="export-button">
+                <i class="bi bi-box-arrow-up"></i>
+                <span>Export Attendance</span>
+              </button>
+              <a download id="export-download" class="visually-hidden">
+                <i class="bi bi-download"></i>
+                <span>Download</span>
+              </a>
+  
+              <div id="export-text-container" class="visually-hidden">
+                <h3>
+                  <i class="bi bi-file-earmark-check"></i>
+                  <span>Generated Text</span>
+                </h3>
+                
+                <div id="textarea-container">
+                  <textarea id="generated-text" readonly></textarea>
+                  <button id="copy-text-button" class="visually-hidden">
+                    <i class="bi bi-copy"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            
+          </div>
+        </div>
+  
+        <!-- actual body -->
+        <div id="grid" class="container"></div>
+
+    </div>
+
+    <!-- modals -->
+
+    <!-- export attendance notice -->
+     <div id="export-notice-modal" class="modal">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Attendance Exported!</h5>
+
+            <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+            <p id="export-notice-text"></p>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">OK</button>
+          </div>
+        </div>
+      </div>
+     </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

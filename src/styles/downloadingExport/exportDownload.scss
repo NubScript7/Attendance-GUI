@@ -1,0 +1,8 @@
+@import '~bootstrap/scss/bootstrap';
+
+#export-download {
+    @extend .btn;
+    @extend .btn-outline-light;
+    @extend .d-block;
+    @extend .my-3;
+}

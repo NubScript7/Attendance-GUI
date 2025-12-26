@@ -1,0 +1,30 @@
+@import '~bootstrap/scss/bootstrap';
+
+
+#export-text-container {
+    @extend .my-3;
+}
+
+#export-text-container {
+
+    label {
+        @extend .my-3;
+    }
+
+    #textarea-container {
+
+        textarea {
+            @extend .form-control;
+        }
+
+        #copy-text-button {
+            @extend .btn;
+            @extend .btn-dark;
+            @extend .border-0;
+            @extend .bg-transparent;
+            @extend .copy-button;
+        }
+
+    }
+
+}

@@ -1,0 +1,42 @@
+// Import all of Bootstrap's CSS
+@import '~bootstrap/scss/bootstrap';
+
+#people {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: 1fr;
+    gap: 1rem;
+}
+
+button {
+    width: 100%;
+    height: 100%;
+}
+
+#textarea-container {
+    position: relative;
+    display: block;
+    color: DarkRed
+}
+
+$btn-size: 35px;
+
+.copy-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    @extend .p-2;
+    width: $btn-size;
+    aspect-ratio: 1 / 1;
+    height: $btn-size
+}
+
+#generated-text {
+    aspect-ratio: 1 / 1;
+}
+
+@include media-breakpoint-up(lg) {
+    #generated-text {
+        aspect-ratio: 1 / .5;
+    }
+}
