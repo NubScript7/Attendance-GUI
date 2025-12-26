@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "create-list": "node attendanceMaker.cjs"
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
