@@ -1,0 +1,24 @@
+:root {
+    --setting-form-zi: 2;
+    --setting-form-blur: 2.5px;
+}
+
+#app-setting-wrapper {
+    position: relative;
+}
+
+#app-setting {
+    z-index: calc(var(--setting-form-zi) + 1);
+}
+
+#app-setting-form {
+    position: absolute;
+    top: 0px;
+    backdrop-filter: blur(var(--setting-form-blur));
+    z-index: var(--setting-form-zi);
+    height: max-content;
+}
+
+#setting-options {
+    font-size: 1.5rem;
+}

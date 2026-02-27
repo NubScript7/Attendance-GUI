@@ -39,5 +39,5 @@ export default defineConfig({
     }
   },
 
-  base: process.env.NODE_ENV === "production" ? "/Attendance-GUI/" : "/",
+  // base: process.env.NODE_ENV === "production" ? "/Attendance-GUI/" : "/",
 })

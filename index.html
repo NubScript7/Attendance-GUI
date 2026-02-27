@@ -2,12 +2,22 @@
 <html lang="en" data-bs-theme="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Attendance GUI</title>
   </head>
   <body>
     <div id="app">
+
+      <!-- settings button -->
+      <div id="app-setting-wrapper">
+        <div class="card" id="app-setting">
+          <button id="app-setting-toggle-btn" class="btn">
+            <i class="bi bi-gear"></i>
+          </button>
+        </div>
+      </div>
+
       <div id="app-container">
         
         <!-- title -->
@@ -43,14 +53,14 @@
               <h3 class="text-muted">Export Type</h3>
               
               <div class="form-check">
-                <input checked class="form-check-input checked" type="radio" name="export-type-radio" id="export-type-file">
+                <input class="form-check-input checked" type="radio" name="export-type-radio" id="export-type-file">
                 <label for="export-type-file">
-                  <i class="bi bi-file-code"></i>
+                  <i class="bi bi-file-earmark-code"></i>
                   <span>File</span>
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="export-type-radio" id="export-type-text">
+                <input checked class="form-check-input" type="radio" name="export-type-radio" id="export-type-text">
                 <label for="export-type-text">
                   <i class="bi bi-text-paragraph"></i>
                   <span>Text</span>
@@ -129,12 +139,66 @@
         <!-- actual body -->
         <div id="grid" class="container"></div>
 
+      </div>
     </div>
 
-    <!-- modals -->
+    <!-- #forms -->
+
+    <!-- settings form -->
+    <div class="d-none d-flex align-items-center container-fluid p-3 vh-100" id="app-setting-form">
+      
+      <div class="container-fluid">
+        
+        <div>
+          <!-- title -->
+          <div class="card">
+            <div class="card-body">
+              <h1 class="text-uppercase text-center">settings</h1>
+            </div>
+          </div>
+    
+          <!-- options -->
+    
+          <div class="card my-3" id="setting-options">
+            <div class="card-body text-capitalize">
+    
+              <div>
+                <div class="form-check form-switch">
+                  <input type="checkbox" class="form-check-input" id="setting-option-dark-theme" checked>
+                  <label for="setting-option-dark-theme">
+                    Dark theme
+                    <i class="bi bi-palette"></i>
+                  </label>
+                </div>
+              </div>
+    
+              <hr>
+    
+              <div>
+                <label for="setting-option-load-attendance">
+                  Import an attendance file from device
+                  <i class="bi bi-filetype-json"></i>
+                </label>
+                <input type="file" accept=".json" class="form-control" id="setting-option-load-attendance">
+              </div>
+
+              <hr>
+
+              <p class="text-center fw-bold small text-muted">nubscript7 @ 2026 🎉</p>
+    
+            </div>
+          </div>
+  
+        </div>
+
+      </div>
+
+    </div>
+    
+    <!-- #modals -->
 
     <!-- export attendance notice -->
-     <div id="export-notice-modal" class="modal">
+    <div id="export-notice-modal" class="modal">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
@@ -152,8 +216,29 @@
           </div>
         </div>
       </div>
-     </div>
+    </div>
 
-    <script type="module" src="/src/main.ts"></script>
+    <!-- invalid attendance json file -->
+    <div id="option-load-attendance-modal" class="modal">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Attendance File Import Notice</h5>
+
+            <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+            <p id="option-load-attendance-text"></p>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="src/main.ts"></script>
   </body>
 </html>

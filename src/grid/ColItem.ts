@@ -7,7 +7,7 @@ export enum ItemState {
 export const itemStateToClass = {
     [ItemState.PRESENT]: "btn-outline-success",
     [ItemState.ABSENT]: "btn-outline-danger",
-    [ItemState.UNSPECIFIED]: "btn-outline-light",
+    [ItemState.UNSPECIFIED]: "border",
 }
 
 export class ColItem {

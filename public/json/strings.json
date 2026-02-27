@@ -1,4 +1,9 @@
 {
     "exportNoticeCopyText": "The attendance export data has been copied to your clipboard.",
-    "exportNoticeDownloadFile": "The attendace export data is getting ready to download. Download will start any second from now."
+    "exportNoticeDownloadFile": "The attendace export data is getting ready to download. Download will start any second from now.",
+    "invalidJSONFileWrongType": "The JSON file that you have picked is invalid. We cannot read the file that you have selected, please fix this issue and try again.",
+    "genuinelyHowTheFuckYouGotThis": "I mean genuinely how the fuck do you get in here? Report this bug, stack trace has been printed in the console.",
+    "invalidJSONFileReadingError": "We have encountered an error during reading of the file. Please try again.",
+    "stopSelectingRandomFile": "Stop selecting random file bro this shit will not fucking work dumbass 😔✌🥀",
+    "importJSONFileSuccess": "The attendance list JSON file has been successfully loaded."
 }

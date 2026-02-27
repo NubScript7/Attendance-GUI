@@ -35,6 +35,11 @@ $btn-size: 35px;
     aspect-ratio: 1 / 1;
 }
 
+#app-setting {
+    position: absolute;
+    right: 0px;
+}
+
 @include media-breakpoint-up(lg) {
     #generated-text {
         aspect-ratio: 1 / .5;
