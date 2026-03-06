@@ -4,6 +4,7 @@ import { StringContent } from "./strings";
 import { storageDB } from "./attendance/storage";
 import type { AttendanceItem } from "./attendance/loader";
 import { refreshPage } from "./navigation";
+import { ThemeState, ThemeToStringState } from "./types/theme";
 
 const NO_VISIBLE = "d-none"
 
@@ -54,18 +55,14 @@ settingToggleBtn.addEventListener("click", () => toggleState())
 
 // options
 
-// theme option
-enum ThemeState {
-    LIGHT,
-    DARK
-}
-
-const ThemeToStringState = {
-    [ThemeState.DARK]: "light",
-    [ThemeState.LIGHT]: "dark"
-}
 
 const DATA_BS_THEME = "bsTheme"
+
+export async function updateThemePreference(theme: ThemeState) {
+    await storageDB.metadata.update(1, {
+        ThemePreference: theme
+    })
+}
 
 function setTheme(theme: ThemeState) {
     switch(theme) {
@@ -76,6 +73,8 @@ function setTheme(theme: ThemeState) {
             htmlElement.dataset[DATA_BS_THEME] = ThemeToStringState[ThemeState.LIGHT]
             break;
     }
+
+    updateThemePreference(theme)
 }
 
 function toggleTheme(override?: ThemeState) {
@@ -178,16 +177,20 @@ async function savePeopleToDB(list: AttendanceItem[], filename: string) {
         const metadata = await storageDB.metadata.get(1);
         const impCount = metadata?.importCounter ?? 0;
 
-        await storageDB.metadata.put({
-            id: 1,
+        const hasImported = metadata?.hasImported ?? false;
+
+        if (!hasImported) {
+            await storageDB.metadata.update(1, {
+                hasImported: true
+            })
+        }
+
+        await storageDB.metadata.update(1, {
             lastUpdated: Date.now(),
             filename,
             totalPeople: normalized.length,
             importCounter: impCount + 1,
-            hasImported: true
         })
-
-
     })
     
     

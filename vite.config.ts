@@ -4,6 +4,7 @@ import path from "path"
 import { viteZip } from 'vite-plugin-zip-file';
 import { fileURLToPath } from 'url';
 import { env } from 'node:process';
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
